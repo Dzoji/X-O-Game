@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Vue - X/O</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="board-wrapper">
+        <div class="board">
+          <div
+            class="box"
+            v-for="(box, index) in boxes"
+            :key="index"
+            :class="{ highlighted: highlightedBoxes.includes(index) }"
+            @click="insertSymbol(index)"
+          >
+            {{ box }}
+          </div>
+        </div>
+        <div class="message">{{ message }}</div>
+        <button class="reset-btn" @click="reset">Reset</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
